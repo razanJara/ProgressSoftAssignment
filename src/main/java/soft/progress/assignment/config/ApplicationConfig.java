@@ -1,13 +1,13 @@
 package soft.progress.assignment.config;
 
+import org.modelmapper.AbstractConverter;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import soft.progress.assignment.dto.request.DealRequest;
-import soft.progress.assignment.entity.Deal;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Configuration
@@ -20,10 +20,16 @@ public class ApplicationConfig {
                 .setFieldMatchingEnabled(true)
                 .setSkipNullEnabled(true)
                 .setFieldAccessLevel(org.modelmapper.config.Configuration.AccessLevel.PRIVATE);
-        modelMapper.createTypeMap(DealRequest.class, Deal.class)
-                .addMappings(mapper -> mapper.using(ctx -> LocalDate.parse((String) ctx.getSource(), DateTimeFormatter.ofPattern("dd-M-yyyy")))
-                        .map(DealRequest::getDealTimestamp, Deal::setDealTimestamp));
 
+        Converter<LocalDateTime, String> localDateTimeToStringConverter = new AbstractConverter<>() {
+            final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            @Override
+            protected String convert(LocalDateTime source) {
+                return source.format(formatter);
+            }
+        };
+
+        modelMapper.addConverter(localDateTimeToStringConverter, LocalDateTime.class, String.class);
         return modelMapper;
     }
 }
