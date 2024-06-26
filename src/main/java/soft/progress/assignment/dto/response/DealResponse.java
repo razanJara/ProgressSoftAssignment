@@ -1,4 +1,4 @@
-package soft.progress.assignment.dto.request;
+package soft.progress.assignment.dto.response;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -8,9 +8,11 @@ import lombok.experimental.FieldDefaults;
 @Data
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class DealRequest {
-    Long Id;
+public class DealResponse {
+    Long id;
+    String dealTimestamp;
     String fromCurrency;
     String toCurrency;
     Double dealAmount;
+
 }
