@@ -1,5 +1,5 @@
 create DATABASE if not exists werehouse;
-       create table werehouse.deal(
+       create table if not exists werehouse.deal(
            id bigint not null,
            from_currency varchar(3) not null,
            to_currency varchar(3) not null,
