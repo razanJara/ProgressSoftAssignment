@@ -1,5 +1,5 @@
 ### Data warehouse for Bloomberg to analyze FX deals
-##The technologies used:
+## The technologies used:
 - Java 17 oracle
 - Meven 4
 - SpringBoot 3.3.1
