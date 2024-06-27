@@ -23,4 +23,4 @@ Swagger link: http://localhost:8080/swagger-ui/index.html#/
 
 ** Note: you must have a mysql image, you can pull it as: " docker pull mysql:latest "
 ## The API's 
-one to do the deal (POST), the other one (GET) to show all the deals, the user can see what are the used Id's so in the POST API, he can enter a unique id in the request
+one to do the deal (POST), the other one (GET) to show all the deals, the user can see what are the used Id's so in the POST API, he can enter unique id in the request
