@@ -7,4 +7,6 @@
 - Docker
 - MySql 8.0.28
 ##
+## Run the code:
+- clone the repo 
 Swagger link: http://localhost:8080/swagger-ui/index.html#/
