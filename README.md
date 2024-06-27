@@ -1,4 +1,4 @@
-#Data warehouse for Bloomberg to analyze FX deals
+### Data warehouse for Bloomberg to analyze FX deals
 ##The technologies used:
 - Java 17 oracle
 - Meven 4
